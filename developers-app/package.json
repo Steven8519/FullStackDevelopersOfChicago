@@ -1,0 +1,25 @@
+{
+  "name": "local-chat",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "bluebird": "*",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "express": "*",
+    "hbs": "^4.0.1",
+    "hjs": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "serve-favicon": "*"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0"
+  }
+}
