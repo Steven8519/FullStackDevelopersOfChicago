@@ -3,66 +3,101 @@
  */
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user");
+const controllers = require("../controllers/index");
 
 router.get("/:resource", function (request, response, next) {
     const resource = request.params.resource;
-    if (resource == "user") {
-        User.find(null, function (error, results) {
-            if (error) {
-                response.json({
-                    conformation: "Error",
-                    message: error
-                });
-                return
-            }
+    const controller = controllers[resource];
 
+    if(controller == null) {
+        response.json({
+            conformation: "Error",
+        });
+    }
+    controller.get(null).then(function (results) {
             response.json({
                 conformation: "success",
                 results: results
             });
+        }).catch(function (error) {
+            response.json({
+                conformation: "Error",
+                results: error
+            });
         });
-    }
-});
+    });
 
 router.get("/:resource/:id", function (request, response, next) {
-   const resource = request.params.resource;
-   const id = request.params._id;
+    const resource = request.params.resource;
+    const id = request.params.id;
 
-   if(resource == "user") {
-       User.findById(id, function (error, result) {
-          if(error) {
-              response.json({
-                  conformation: "Error",
-                  result: result
-              });
-              return
-          }
-          response.json({
-              conformation: "success",
-              result: result
-          });
-       });
-   }
+    const controller = controllers[resource];
+
+    if(controller == null) {
+        response.json({
+            conformation: "Error",
+        });
+    }
+    controller.getById(id)
+        .then(function (results) {
+        response.json({
+            conformation: "success",
+            results: results
+        });
+    }).catch(function (error) {
+        response.json({
+            conformation: "Error",
+            results: error
+        });
+    });
 });
 
 router.post("/:resource", function (request, response, next) {
     const resource = request.params.resource;
-    if(resource == "user") {
-        User.create(request.body, function (error, result) {
-            if(error) {
-                response.json({
-                    conformation: "Error",
-                    message: result
-                });
-                return
-            }
-            response.json({
-                conformation: "success",
-                result: result
-            });
+
+    const controller = controllers[resource];
+    if(controller == null) {
+        response.json({
+            conformation: "Error",
         });
     }
+    controller.post(request.body)
+        .then(function (results) {
+            response.json({
+                conformation: "success",
+                results: results
+            });
+        }).catch(function (error) {
+        response.json({
+            conformation: "Error",
+            results: error
+        });
+    });
+});
+
+router.put("/:resource/:id", function (request, response, next) {
+   const resource = request.params.resource;
+   const id = request.params.id;
+
+    const controller = controllers[resource];
+    if(controller == null) {
+        response.json({
+            conformation: "Error",
+            message: "File does not exist"
+        });
+    }
+    controller.put(id, request.body)
+        .then(function (results) {
+            response.json({
+                conformation: "success",
+                results: results
+            });
+        }).catch(function (error) {
+        response.json({
+            conformation: "Error",
+            results: error
+        });
+    });
 });
 
 module.exports = router;

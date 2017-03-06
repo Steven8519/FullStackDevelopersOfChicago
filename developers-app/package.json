@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "bcryptjs": "*",
-    "bluebird": "*",
+    "bluebird": "^3.5.0",
     "body-parser": "*",
     "cookie-parser": "*",
     "debug": "*",
