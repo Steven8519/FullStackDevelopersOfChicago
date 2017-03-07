@@ -13,7 +13,12 @@ module.exports = {
                 if (error) {
                     reject(error)
                 } else {
-                    resolve(users);
+                    var list = [];
+                    for(var i = 0; i < users.length; i++) {
+                        let user = users[i];
+                        list.push(user.summary());
+                    }
+                    resolve(list);
                 }
             });
         });
@@ -25,7 +30,7 @@ module.exports = {
                 if (error) {
                     reject(error);
                 } else {
-                    resolve(user);
+                    resolve(user.summary());
                 }
             });
 
@@ -39,19 +44,19 @@ module.exports = {
                 if (error) {
                     reject(error);
                 } else {
-                    resolve(user);
+                    resolve(user.summary());
                 }
             });
         });
     },
 
-    put: function () {
+    put: function (id, params) {
         return new Promise(function (resolve, reject) {
             User.findByIdAndUpdate(id, params, {new: true}, function (error, user) {
                 if(error) {
                     reject(error);
                 } else {
-                    resolve(user);
+                    resolve(user.summary());
                 }
             });
         });

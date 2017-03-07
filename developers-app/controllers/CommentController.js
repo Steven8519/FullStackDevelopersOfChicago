@@ -12,7 +12,7 @@ module.exports = {
                 if (error) {
                     reject(error)
                 } else {
-                    resolve(comments);
+                  resolve(comments);
                 }
             });
         });
@@ -42,7 +42,7 @@ module.exports = {
         });
     },
 
-    put: function () {
+    put: function (id, params) {
         "use strict";
         return new Promise(function (resolve, reject) {
             Comment.findByIdAndUpdate(id, params, {new: true}, function (error, comment) {

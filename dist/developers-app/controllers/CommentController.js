@@ -45,7 +45,7 @@ module.exports = {
         });
     },
 
-    put: function put() {
+    put: function put(id, params) {
         "use strict";
 
         return new Promise(function (resolve, reject) {

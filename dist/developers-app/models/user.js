@@ -14,5 +14,16 @@ var UserSchema = new mongoose.Schema({
     timestamp: { type: Date, default: Date.now }
 });
 
+UserSchema.methods.summary = function () {
+    var summary = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        id: this._id
+
+    };
+    return summary;
+};
+
 module.exports = mongoose.model('UserSchema', UserSchema);
 //# sourceMappingURL=user.js.map
