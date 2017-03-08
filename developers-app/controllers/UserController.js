@@ -6,19 +6,25 @@ const Promise = require("bluebird");
 const bcrypt = require("bcryptjs");
 
 module.exports = {
-    get: function (params) {
+    get: function (params, isRaw) {
         return new Promise(function (resolve, reject) {
             "use strict";
             User.find(params, function (error, users) {
                 if (error) {
                     reject(error)
                 } else {
-                    var list = [];
-                    for(var i = 0; i < users.length; i++) {
-                        let user = users[i];
-                        list.push(user.summary());
+
+                    if(isRaw == true) {
+                        resolve(users);
+                    } else {
+                        var list = [];
+                        for (var i = 0; i < users.length; i++) {
+                            let user = users[i];
+                            list.push(user.summary());
+
+                        }
+                        resolve(list);
                     }
-                    resolve(list);
                 }
             });
         });

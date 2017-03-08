@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 const routes = require('./routes/index');
 const api = require('./routes/api');
+const account = require("./routes/account");
 
 const databaseUrl = 'mongodb://localhost/developers';
 mongoose.connect(databaseUrl, function(error, response){
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/api', api);
+app.use("/account", account);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -5,7 +5,7 @@ const Comment = require("../models/comment");
 const Promise = require("bluebird");
 
 module.exports = {
-    get: function (params) {
+    get: function (params, isRaw) {
         return new Promise(function (resolve, reject) {
             "use strict";
             Comment.find(params, function (error, comments) {

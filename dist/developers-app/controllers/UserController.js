@@ -8,7 +8,7 @@ var Promise = require("bluebird");
 var bcrypt = require("bcryptjs");
 
 module.exports = {
-    get: function get(params) {
+    get: function get(params, isRaw) {
         return new Promise(function (resolve, reject) {
             "use strict";
 
@@ -16,12 +16,17 @@ module.exports = {
                 if (error) {
                     reject(error);
                 } else {
-                    var list = [];
-                    for (var i = 0; i < users.length; i++) {
-                        var user = users[i];
-                        list.push(user.summary());
+
+                    if (isRaw == true) {
+                        resolve(users);
+                    } else {
+                        var list = [];
+                        for (var i = 0; i < users.length; i++) {
+                            var user = users[i];
+                            list.push(user.summary());
+                        }
+                        resolve(list);
                     }
-                    resolve(list);
                 }
             });
         });

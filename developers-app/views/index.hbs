@@ -7,6 +7,16 @@
   <body>
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
+
+    <h2>Login</h2>
+    <form action="/account/login" method="post">
+        <input type="text" name="email" placeholder="Email"/><br />
+        <input type="text" name="password" placeholder="Password"/><br />
+        <input type="submit" value="Login"/>
+    </form>
+    <br/>
+    <br/>
+    <br/>
     <form action="/api/user" method="post">
         <input type="text" name="firstName" placeholder="First Name"/><br />
         <input type="text" name="lastName" placeholder="Last Name"/><br />
