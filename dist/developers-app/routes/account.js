@@ -6,13 +6,14 @@
 var express = require("express");
 var router = express.Router();
 var UserController = require("../controllers/UserController");
+var bcrypt = require("bcryptjs");
 
 router.post("/:action", function (request, response, next) {
     var action = request.params.action;
 
     if (action == "login") {
         var email = request.body.email;
-        UserController.get({ email: email }).then(function (users) {
+        UserController.get({ email: email }, true).then(function (users) {
             if (users.length == 0) {
                 response.json({
                     conformation: "Error",
@@ -24,6 +25,12 @@ router.post("/:action", function (request, response, next) {
 
                 // Check password
                 var passwordCheck = bcrypt.compareSync(password, user.password);
+                if (passwordCheck == false) {
+                    response.json({
+                        conformation: "Error",
+                        message: "Incorrect Password."
+                    });
+                }
 
                 response.json({
                     conformation: "success",

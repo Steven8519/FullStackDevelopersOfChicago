@@ -4,13 +4,14 @@
 const express = require("express");
 const router = express.Router();
 const UserController = require("../controllers/UserController");
+const bcrypt = require("bcryptjs");
 
 router.post("/:action", function (request, response, next) {
     const action = request.params.action;
 
         if(action == "login") {
             const  email = request.body.email;
-            UserController.get({ email: email})
+            UserController.get({ email: email}, true)
                 .then(function (users) {
                     if (users.length == 0) {
                         response.json({
@@ -23,6 +24,12 @@ router.post("/:action", function (request, response, next) {
 
                         // Check password
                         const passwordCheck = bcrypt.compareSync(password, user.password);
+                        if(passwordCheck == false) {
+                            response.json({
+                                conformation: "Error",
+                                message:"Incorrect Password."
+                            })
+                        }
 
                         response.json({
                             conformation: "success",
