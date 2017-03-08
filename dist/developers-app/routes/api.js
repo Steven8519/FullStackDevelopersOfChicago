@@ -16,7 +16,7 @@ router.get("/:resource", function (request, response, next) {
             conformation: "Error"
         });
     }
-    controller.get(null).then(function (results) {
+    controller.get(null, false).then(function (results) {
         response.json({
             conformation: "success",
             results: results
