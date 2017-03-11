@@ -9,6 +9,7 @@
     "bcryptjs": "*",
     "bluebird": "^3.5.0",
     "body-parser": "*",
+    "client-sessions": "^0.7.0",
     "cookie-parser": "*",
     "debug": "*",
     "express": "*",
@@ -16,7 +17,10 @@
     "hjs": "*",
     "mongoose": "*",
     "morgan": "*",
-    "serve-favicon": "*"
+    "node-gyp": "^3.5.0",
+    "rebuild": "^0.1.2",
+    "serve-favicon": "*",
+    "superagent": "^3.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",

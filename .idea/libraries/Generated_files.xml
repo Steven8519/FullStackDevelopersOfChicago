@@ -2,25 +2,25 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/dist/developers-app/models/comment.js" />
         <item url="file://$PROJECT_DIR$/dist/developers-app/routes/account.js" />
         <item url="file://$PROJECT_DIR$/dist/developers-app/app.js" />
-        <item url="file://$PROJECT_DIR$/dist/developers-app/controllers/index.js" />
-        <item url="file://$PROJECT_DIR$/dist/developers-app/routes/api.js" />
-        <item url="file://$PROJECT_DIR$/dist/developers-app/models/user.js" />
-        <item url="file://$PROJECT_DIR$/dist/developers-app/controllers/CommentController.js" />
-        <item url="file://$PROJECT_DIR$/dist/developers-app/controllers/UserController.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/dist/developers-app/models/comment.js" />
-      <root url="file://$PROJECT_DIR$/dist/developers-app/routes/account.js" />
-      <root url="file://$PROJECT_DIR$/dist/developers-app/app.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/controllers/index.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/routes/api.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/models/user.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/controllers/CommentController.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/controllers/UserController.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/models/comment.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/controllers/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/routes/api.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/models/user.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/controllers/CommentController.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/controllers/UserController.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/routes/account.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/app.js" />
     </CLASSES>
     <SOURCES />
   </library>

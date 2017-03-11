@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const sessions = require("client-sessions");
 
 const routes = require('./routes/index');
 const api = require('./routes/api');
@@ -33,6 +34,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Create a logging session for the user.
+app.use(sessions({
+  cookieName: "session",
+    secret: "ajajfjwfajwej", //1 day session.
+    duration: 20*60*60*1000,
+    activeDuration: 30*60*1000
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
