@@ -6,18 +6,18 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const sessions = require("client-sessions");
+require("dotenv").config();
 
 const routes = require('./routes/index');
 const api = require('./routes/api');
 const account = require("./routes/account");
 
-const databaseUrl = 'mongodb://localhost/developers';
-mongoose.connect(databaseUrl, function(error, response){
+mongoose.connect(process.env.MONGO_DB, function(error, response){
   if (error){
     console.log('Connection to database was unsuccessful: '+ error)
   }
   else{
-    console.log('DB CONNECTION SUCCESS: '+ databaseUrl)
+    console.log('DB CONNECTION SUCCESS: '+ process.env.MONGO_DB)
   }
 
 });

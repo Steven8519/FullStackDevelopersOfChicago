@@ -8,17 +8,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var sessions = require("client-sessions");
+require("dotenv").config();
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
 var account = require("./routes/account");
 
-var databaseUrl = 'mongodb://localhost/developers';
-mongoose.connect(databaseUrl, function (error, response) {
+mongoose.connect(process.env.MONGO_DB, function (error, response) {
   if (error) {
     console.log('Connection to database was unsuccessful: ' + error);
   } else {
-    console.log('DB CONNECTION SUCCESS: ' + databaseUrl);
+    console.log('DB CONNECTION SUCCESS: ' + process.env.MONGO_DB);
   }
 });
 

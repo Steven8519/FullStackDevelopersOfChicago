@@ -2,8 +2,11 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/developers-app/public/build/bundle.js" />
         <item url="file://$PROJECT_DIR$/dist/developers-app/routes/account.js" />
+        <item url="file://$PROJECT_DIR$/dist/developers-app/webpack.config.js" />
         <item url="file://$PROJECT_DIR$/dist/developers-app/app.js" />
+        <item url="file://$PROJECT_DIR$/dist/developers-app/src/app.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -19,8 +22,11 @@
       <root url="file://$PROJECT_DIR$/dist/developers-app/models/user.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/controllers/CommentController.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/controllers/UserController.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/public/build/bundle.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/routes/account.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/webpack.config.js" />
       <root url="file://$PROJECT_DIR$/dist/developers-app/app.js" />
+      <root url="file://$PROJECT_DIR$/dist/developers-app/src/app.js" />
     </CLASSES>
     <SOURCES />
   </library>
